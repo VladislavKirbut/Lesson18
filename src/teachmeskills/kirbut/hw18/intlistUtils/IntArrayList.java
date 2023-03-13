@@ -1,4 +1,4 @@
-package intlistUtils;
+package teachmeskills.kirbut.hw18.intlistUtils;
 import java.util.Arrays;
 
 public class IntArrayList implements IntList {
@@ -85,6 +85,18 @@ public class IntArrayList implements IntList {
                 return i;
 
         return -1;
+    }
+
+    public void sort() {
+        for (int i = 0; i < arrayList.length - 1; i++) {
+            for (int j = 0; j < arrayList.length - 1 - i; j++) {
+                if (arrayList[j] > arrayList[j + 1]) {
+                    int t = arrayList[j];
+                    arrayList[j] = arrayList[j + 1];
+                    arrayList[j + 1] = t;
+                }
+            }
+        }
     }
 
     @Override

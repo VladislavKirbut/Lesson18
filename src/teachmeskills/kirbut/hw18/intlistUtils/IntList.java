@@ -1,4 +1,4 @@
-package intlistUtils;
+package teachmeskills.kirbut.hw18.intlistUtils;
 
 public interface IntList {
     int get(int index);
