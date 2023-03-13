@@ -10,7 +10,7 @@ public class IntArrayList implements IntList {
     }
 
     public IntArrayList(int[] arrayList) {
-        this.arrayList = arrayList;
+        this.arrayList = Arrays.copyOf(arrayList, arrayList.length);
     }
 
     public int[] getArrayList() {
