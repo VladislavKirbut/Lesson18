@@ -6,7 +6,5 @@ public interface IntList {
     int size();
     void add(int element);
     int remove(int index);
-    IntArrayList subList(int startIndexInclusive, int endIndexExclusive);
-    IntArrayList subList(int startIndexInclusive);
     int lastIndexOf(int element);
 }

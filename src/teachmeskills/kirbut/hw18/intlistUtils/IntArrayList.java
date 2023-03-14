@@ -63,7 +63,6 @@ public class IntArrayList implements IntList {
         return deletedElement;
     }
 
-    @Override
     public IntArrayList subList(int startIndexInclusive, int endIndexExclusive) {
         if (startIndexInclusive < 0 || endIndexExclusive > arrayList.length || startIndexInclusive > endIndexExclusive)
             throw new IllegalArgumentException("Enter correct parameters.");
@@ -73,7 +72,6 @@ public class IntArrayList implements IntList {
         return new IntArrayList(newArr);
     }
 
-    @Override
     public IntArrayList subList(int startIndexInclusive) {
         return subList(startIndexInclusive, arrayList.length);
     }
