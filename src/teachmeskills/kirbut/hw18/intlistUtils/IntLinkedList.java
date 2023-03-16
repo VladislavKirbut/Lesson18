@@ -7,6 +7,25 @@ public class IntLinkedList {
         this.headNode = null;
     }
 
+/*    @Override*/
+    public int size() {
+        int countOfNode = 0;
+
+        if (headNode == null) {
+            return countOfNode;
+        }
+
+        IntLinkedNode node = headNode;
+        countOfNode++;
+
+        while (node.getNextNode() != null) {
+            countOfNode++;
+            node = node.getNextNode();
+        }
+
+        return countOfNode;
+    }
+
     public void add(int element) {
         if (headNode == null) {
             headNode = new IntLinkedNode(element);
@@ -20,7 +39,6 @@ public class IntLinkedList {
 
         node.setNextNode(new IntLinkedNode(element));
     }
-
     @Override
     public String toString() {
         return "" + headNode;
