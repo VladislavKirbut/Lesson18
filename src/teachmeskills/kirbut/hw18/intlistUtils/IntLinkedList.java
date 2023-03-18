@@ -85,8 +85,23 @@ public class IntLinkedList {
 
         node.setNextNode(new IntLinkedNode(element, null));
     }
-    @Override
-    public String toString() {
-        return "" + headNode;
+
+    /*@Override*/
+    public int lastIndexOf(int element) {
+
+        IntLinkedNode node = headNode;
+        int index = -1;
+        int counter = 0;
+
+        while (node != null) {
+            if (node.getElement() == element) {
+                index = counter;
+            }
+
+            node = node.getNextNode();
+            counter++;
+        }
+
+        return index;
     }
 }
