@@ -1,4 +1,4 @@
-package teachmeskills.kirbut.hw18.intlistUtils;
+package teachmeskills.kirbut.hw18.intlist;
 import java.util.Arrays;
 
 public class IntArrayList implements IntList {

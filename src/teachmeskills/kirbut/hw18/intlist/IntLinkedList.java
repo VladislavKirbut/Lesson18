@@ -1,7 +1,7 @@
-package teachmeskills.kirbut.hw18.intlistUtils;
+package teachmeskills.kirbut.hw18.intlist;
 
 public class IntLinkedList implements IntList {
-    private class IntLinkedNode {
+    private static class IntLinkedNode {
         private int element;
         private IntLinkedNode nextNode;
 
@@ -38,46 +38,37 @@ public class IntLinkedList implements IntList {
         this.headNode = null;
     }
 
-    @Override
-    public int get(int index) {
+    private IntLinkedNode getNode(int index) {
         if (index < 0)
             throw new IllegalArgumentException("You entered a negative index!");
 
-        int numberOfElement = 0;
-        IntLinkedNode node = headNode;
-
-        while (node != null) {
-            if (numberOfElement == index)
-                return node.getElement();
-
-            node = node.getNextNode();
-            numberOfElement++;
-        }
-
-        throw new IllegalArgumentException("This index doesn't exist.");
-    }
-
-    @Override
-    public int set(int index, int element) {
-        if (index < 0) throw new IllegalArgumentException("The index is negative.");
-
         int counter = 0;
-        int previousElement = 0;
-
         IntLinkedNode node = headNode;
 
         while (node != null) {
-            if (counter == index) {
-                previousElement = node.getElement();
-                node.setElement(element);
-                return previousElement;
-            }
+            if (counter == index)
+                return node;
 
             node = node.getNextNode();
             counter++;
         }
 
         throw new IllegalArgumentException("This index doesn't exist.");
+    }
+
+    @Override
+    public int get(int index) {
+        IntLinkedNode node = getNode(index);
+        return node.getElement();
+    }
+
+    @Override
+    public int set(int index, int element) {
+        IntLinkedNode node = getNode(index);
+        int previousElement = node.getElement();
+        node.setElement(element);
+
+        return previousElement;
     }
 
     @Override
@@ -111,26 +102,21 @@ public class IntLinkedList implements IntList {
 
     @Override
     public int remove(int index) {
-        if (index < 0) throw new IllegalArgumentException("The index is negative.");
+        if (headNode == null) throw new IllegalArgumentException("This list is empty.");
 
-        int counter = 0;
-        IntLinkedNode node = headNode;
-        IntLinkedNode previousNode = headNode;
+        int removedElement;
 
-        while (node != null) {
-            if (counter == index) {
-                int deletedElement = node.getElement();
-                node = node.getNextNode();
-                previousNode.setNextNode(node);
-                return deletedElement;
-            }
-
-            previousNode = node;
-            node = node.getNextNode();
-            counter++;
+        if (index == 0) {
+            removedElement = headNode.getElement();
+            headNode = headNode.getNextNode();
+        } else {
+            IntLinkedNode previousNode = getNode(index - 1);
+            IntLinkedNode node = getNode(index);
+            removedElement = node.getElement();
+            previousNode.setNextNode(node.getNextNode());
         }
 
-        throw new IllegalArgumentException("This index doesn't exist.");
+        return removedElement;
     }
 
     @Override
