@@ -137,4 +137,23 @@ public class IntLinkedList implements IntList {
 
         return index;
     }
+    @Override
+    public String toString() {
+        StringBuilder elementsString = new StringBuilder();
+
+        IntLinkedNode node = headNode;
+
+        while (true) {
+            if (node == null) {
+                break;
+            } else if (node.getNextNode() != null) {
+                elementsString.append(node).append("-->");
+            } else {
+                elementsString.append(node);
+            }
+            node = node.getNextNode();
+        }
+
+        return elementsString.toString();
+    }
 }
