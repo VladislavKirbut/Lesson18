@@ -111,7 +111,11 @@ public class IntLinkedList implements IntList {
             headNode = headNode.getNextNode();
         } else {
             IntLinkedNode previousNode = getNode(index - 1);
-            IntLinkedNode node = getNode(index);
+            IntLinkedNode node = previousNode.getNextNode();
+
+            if (node == null)
+                throw new IllegalArgumentException("This index doesn't exist.");
+
             removedElement = node.getElement();
             previousNode.setNextNode(node.getNextNode());
         }

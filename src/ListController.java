@@ -4,7 +4,7 @@ import teachmeskills.kirbut.hw18.intlist.IntList;
 
 import java.util.Scanner;
 
-public class List {
+public class ListController {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         IntList arrayList = new IntArrayList();
