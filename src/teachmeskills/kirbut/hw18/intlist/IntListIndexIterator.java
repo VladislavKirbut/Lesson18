@@ -7,6 +7,7 @@ public class IntListIndexIterator implements Iterator<Integer> {
     private int i = 0;
 
     public IntListIndexIterator(IntArrayList list) {
+        if (list == null) throw new IllegalArgumentException("Enter a correct parameter");
         this.list = list;
     }
 
