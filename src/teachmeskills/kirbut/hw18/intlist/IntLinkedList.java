@@ -1,5 +1,7 @@
 package teachmeskills.kirbut.hw18.intlist;
 
+import java.util.Iterator;
+
 public class IntLinkedList implements IntList {
     private IntLinkedNode headNode;
 
@@ -110,6 +112,12 @@ public class IntLinkedList implements IntList {
 
         return index;
     }
+
+    @Override
+    public Iterator<Integer> iterator() {
+        return new IntLinkedNodeIterator(this.headNode);
+    }
+
     @Override
     public String toString() {
         StringBuilder elementsString = new StringBuilder();

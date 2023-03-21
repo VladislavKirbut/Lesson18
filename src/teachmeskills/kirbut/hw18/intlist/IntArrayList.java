@@ -1,5 +1,6 @@
 package teachmeskills.kirbut.hw18.intlist;
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class IntArrayList implements IntList {
 
@@ -95,6 +96,10 @@ public class IntArrayList implements IntList {
                 }
             }
         }
+    }
+    @Override
+    public Iterator<Integer> iterator() {
+        return new IntListIndexIterator(this);
     }
 
     @Override

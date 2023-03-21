@@ -13,16 +13,13 @@ public class IntListIndexIterator implements Iterator<Integer> {
 
     @Override
     public boolean hasNext() {
-        if (i < list.size()){
-            i++;
-            return true;
-        }
-
-        return false;
+        return i < list.size();
     }
 
     @Override
     public Integer next() {
-        return list.get(i);
+        int element = list.get(i);
+        i++;
+        return element;
     }
 }

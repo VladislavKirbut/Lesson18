@@ -11,18 +11,15 @@ public class IntLinkedNodeIterator implements Iterator<Integer> {
 
     @Override
     public boolean hasNext() {
-        if (node != null) {
-            node = node.getNextNode();
-            return true;
-        }
-
-        return false;
+        return node != null;
     }
 
     @Override
     public Integer next() {
         if (node != null) {
-            return node.getElement();
+            int element = node.getElement();
+            node = node.getNextNode();
+            return element;
         }
 
         throw new IllegalArgumentException("The element doesn't exist.");

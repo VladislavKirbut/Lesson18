@@ -2,6 +2,7 @@ import teachmeskills.kirbut.hw18.intlist.IntArrayList;
 import teachmeskills.kirbut.hw18.intlist.IntLinkedList;
 import teachmeskills.kirbut.hw18.intlist.IntList;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class ListController {
@@ -18,6 +19,8 @@ public class ListController {
                     4. Method add()
                     5. Method remove()
                     6. Method lastIndexOf()
+                    7. Method iterator()
+                    8. Method for-each
                     0. Exit.
                     """);
 
@@ -95,6 +98,39 @@ public class ListController {
 
                     printList(arrayList, linkedList);
                 }
+                case 7 -> {
+                    System.out.println("Method iterator");
+                    System.out.println("-----------------------");
+
+                    System.out.print("ArrayList: ");
+                    Iterator<Integer> arrayIterator = arrayList.iterator();
+                    while (arrayIterator.hasNext()) {
+                        System.out.print(arrayIterator.next() + " ");
+                    }
+
+                    System.out.print("\nLinkedList: ");
+                    Iterator<Integer> linkedIterator = linkedList.iterator();
+                    while (linkedIterator.hasNext()) {
+                        System.out.print(linkedIterator.next() + " ");
+                    }
+                    System.out.println();
+                }
+                case 8 -> {
+                    System.out.println("Method for-each");
+                    System.out.println("-----------------------");
+
+                    System.out.print("ArrayList: ");
+                    for (int elem: arrayList) {
+                        System.out.print(elem + " ");
+                    }
+
+                    System.out.print("\nLinkedList: ");
+                    for (int elem: linkedList) {
+                        System.out.print(elem + " ");
+                    }
+                    System.out.println();
+                }
+                case 0 -> System.exit(1);
                 default -> System.out.println("Enter correct task number!");
             }
         }
